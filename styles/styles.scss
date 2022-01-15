@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(188deg, rgba(34,193,195,1) 0%, rgba(132,159,142,1) 45%, rgba(230,124,89,1) 100%);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 50px auto;
+}
+
+#content {
+  padding: 10px;
+  display: inline-block;
+}
+
+.cart {
+    border-radius: 5%;
+    padding: 10px
+}
+
+// infinity animation 
+.cart {
+    animation: color-change 1s infinite;
+  }
+  
+  @keyframes color-change {
+    0% { 
+       border: 1px solid rgba(194, 9, 9, 0.036);
+       background-color: rgba(194, 9, 9, 0.139);
+    }
+    50% { 
+        border: 1px solid rgba(9, 139, 194, 0.036);
+        background-color: rgba(9, 176, 194, 0.082);
+    }
+    100% { 
+        border: 1px solid rgba(194, 9, 9, 0.03);
+        background-color: rgba(194, 9, 9, 0.084);
+     }
+  }
+
+
+  // infinity shaking animation
+.shake {
+    animation: shake-animation 1.20s ease infinite;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes shake-animation {
+     0% { transform:translate(0,0) }
+    1.78571% { transform:translate(5px,0) }
+    3.57143% { transform:translate(0,0) }
+    5.35714% { transform:translate(5px,0) }
+    7.14286% { transform:translate(0,0) }
+    8.92857% { transform:translate(5px,0) }
+    10.71429% { transform:translate(0,0) }
+    100% { transform:translate(0,0) }
+  }
+
+.ship-images {
+    width: 45px;
+}
+
+.ship-image {
+    padding: 10px;
+}
+
+.life {
+    text-align: center;
+}
+
+.controller {
+    margin-top: 50vh;
+    text-align: center;
+
+
+    &__button {
+     color:rgb(40, 25, 1);
+     border-radius: 25px;
+     font-size: 25px;
+     font-weight: 200;
+     background-color: rgba(92, 15, 15, 0.187);
+     border: 1px solid rgba(92, 15, 15, 0.187);;
+     width: 50%;
+     height: 50px;
+    }
+
+    &__button:hover { 
+        color:rgb(1, 0, 0);
+        background-color: rgb(255, 9, 9);
+        border: 1px solid rgba(244, 197, 7, 0.571)
+    }
+}

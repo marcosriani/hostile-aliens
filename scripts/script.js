@@ -58,7 +58,9 @@ class GameWorld {
   attackedShip = () => {
     // deep copy of objects inside the array
     const allShipsCopy = this.allShips.map((obj) => {
-      return { ...obj };
+      const newObject = { ...obj };
+      newObject.gotShot = false;
+      return newObject;
     });
 
     const randomShip =
@@ -69,7 +71,7 @@ class GameWorld {
 
     if (randomShip.totalPoints <= 0) {
       randomShip.image = '../images/explosion.png';
-      randomShip.totalPoints = '<i class="fas fa-radiation-alt"></i>';
+      randomShip.totalPoints = 0;
 
       const index = allShipsCopy.indexOf(randomShip);
       if (index > -1) {
@@ -78,9 +80,11 @@ class GameWorld {
           this.allShips = allShipsCopy;
         }, 1000);
       }
+      this.allShips = allShipsCopy;
     }
+    console.log(randomShip.gotShot);
 
-    this.allShips = allShipsCopy;
+    if (randomShip.totalPoints > 0) this.allShips = allShipsCopy;
 
     console.log(randomShip);
     // console.log(this.allShips);
@@ -100,10 +104,10 @@ class GameWorld {
     this.allShips.forEach((ship) => {
       let div = document.createElement('div');
       div.id = 'content';
-      //   ${
-      //     this.gotShot ? 'cart-attacked' : ''
-      //   }
-      div.innerHTML = `<div class="cart "><div class="ship-image"><img class="ship-images shake" src="${ship.image}"></div><div class="life">${ship.totalPoints}</div></div>`;
+      div.innerHTML = `<div class="cart "><div class="ship-image"><img class="ship-images shake" src="${
+        ship.image
+      }"></div><div class="${ship.gotShot ? 'lost-life' : 'life'}">
+      ${ship.totalPoints}</div></div>`;
       this.sky.appendChild(div);
     });
   };
@@ -119,37 +123,3 @@ buttonFight.addEventListener('click', () => {
   initiateWorld.attackedShip();
   initiateWorld.gameGenerator();
 });
-
-// attackedShip = () => {
-//     const allShipsCopy = [...this.allShips];
-//     const randomSelectedShip =
-//       allShipsCopy[this.getRandomIntInclusive(0, allShipsCopy.length - 1)];
-//     const updatedShipObj = { ...randomSelectedShip };
-
-//     const indexRandomSelectedShip = allShipsCopy.indexOf(randomSelectedShip);
-
-//     if (indexRandomSelectedShip > -1) {
-//       allShipsCopy.splice(indexRandomSelectedShip, 1);
-//       updatedShipObj.totalPoints -= updatedShipObj.loses;
-//       updatedShipObj.gotShot = true;
-//       //   if (updatedShipObj.totalPoints <= 0) {
-//       //     updatedShipObj.image = '../images/explosion.png';
-//       //     const index2 = allShipsCopy.indexOf(updatedShipObj);
-//       //     if (index2 > -1) {
-//       //       // setTimeout(() => {
-//       //       allShipsCopy.splice(index2, 1);
-//       //       //   this.allShips = allShipsCopy;
-//       //       // }, 1000);
-//       //     }
-//     }
-
-//     //   allShipsCopy.splice(index, 1);
-//     // }
-
-//     console.log(allShipsCopy);
-
-//     // this.allShips = allShipsCopy;
-
-//     // console.log(randomShip);
-//     // console.log(this.allShips);
-//   };

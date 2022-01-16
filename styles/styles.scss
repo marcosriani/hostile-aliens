@@ -16,6 +16,10 @@ body {
   display: inline-block;
 }
 
+.ship-sky {
+    height: 450px;
+}
+
 // infinity animation to change color of the carts
 .cart {
     border-radius: 5%;
@@ -37,29 +41,6 @@ body {
         background-color: rgba(194, 9, 9, 0.084);
      }
   }
-
-//   .cart-attacked {
-//     border-radius: 5%;
-//     padding: 10px;
-//     animation: color-change-attacked 1s infinite;
-//   }
-  
-//   @keyframes color-change-attacked {
-//     0% { 
-//        border: 1px solid rgba(194, 9, 9, 0.036);
-//        background-color: rgba(238, 10, 10, 0.755);
-//     }
-//     50% { 
-//         border: 1px solid rgba(9, 139, 194, 0.036);
-//         background-color: rgba(9, 176, 194, 0.712);
-//     }
-//     100% { 
-//         border: 1px solid rgba(194, 9, 9, 0.03);
-//         background-color: rgba(233, 12, 12, 0.767);
-//      }
-//   }
-
-
 
   // infinity shaking animation
 .shake {
@@ -89,27 +70,34 @@ body {
 .life {
     text-align: center;
     font-weight: 600;
+    color: black;
+}
+
+.lost-life {
+    text-align: center;
+    font-weight: 600;
+    color: rgb(205, 0, 0);
+
 }
 
 .controller {
-    margin-top: 50vh;
+    margin-top: 25vh;
     text-align: center;
 
 
     &__button {
-     color:rgb(40, 25, 1);
+     color:rgb(230, 223, 213);
      border-radius: 25px;
      font-size: 25px;
      font-weight: 200;
-     background-color: rgba(92, 15, 15, 0.187);
-     border: 1px solid rgba(92, 15, 15, 0.187);;
+     background-color: #bf7153;
+     border: 1px solid rgba(216, 207, 207, 0.187);;
      width: 50%;
      height: 50px;
     }
 
     &__button:hover { 
-        color:rgb(1, 0, 0);
-        background-color: rgb(255, 9, 9);
+        background-color: #e25822;
         border: 1px solid rgba(244, 197, 7, 0.571)
     }
 }

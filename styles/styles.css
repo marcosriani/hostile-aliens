@@ -16,6 +16,10 @@ body {
   display: inline-block;
 }
 
+.ship-sky {
+  height: 450px;
+}
+
 .cart {
   border-radius: 5%;
   padding: 10px;
@@ -78,24 +82,30 @@ body {
 .life {
   text-align: center;
   font-weight: 600;
+  color: black;
+}
+
+.lost-life {
+  text-align: center;
+  font-weight: 600;
+  color: #cd0000;
 }
 
 .controller {
-  margin-top: 50vh;
+  margin-top: 25vh;
   text-align: center;
 }
 .controller__button {
-  color: #281901;
+  color: #e6dfd5;
   border-radius: 25px;
   font-size: 25px;
   font-weight: 200;
-  background-color: rgba(92, 15, 15, 0.187);
-  border: 1px solid rgba(92, 15, 15, 0.187);
+  background-color: #bf7153;
+  border: 1px solid rgba(216, 207, 207, 0.187);
   width: 50%;
   height: 50px;
 }
 .controller__button:hover {
-  color: #010000;
-  background-color: #ff0909;
+  background-color: #e25822;
   border: 1px solid rgba(244, 197, 7, 0.571);
 }

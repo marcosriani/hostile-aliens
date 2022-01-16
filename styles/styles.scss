@@ -24,10 +24,10 @@ body {
 .cart {
     border-radius: 5%;
     padding: 10px;
-    animation: color-change 1s infinite;
+    animation: first-color-change 1s infinite;
   }
   
-  @keyframes color-change {
+  @keyframes first-color-change {
     0% { 
        border: 1px solid rgba(194, 9, 9, 0.036);
        background-color: rgba(194, 9, 9, 0.139);
@@ -39,6 +39,27 @@ body {
     100% { 
         border: 1px solid rgba(194, 9, 9, 0.03);
         background-color: rgba(194, 9, 9, 0.084);
+     }
+  }
+
+  .attacked-cart {
+    border-radius: 5%;
+    padding: 10px;
+    animation: second-color-change 1s infinite;
+  }
+  
+  @keyframes second-color-change {
+    0% { 
+       border: 1px solid rgba(194, 9, 9, 0.036);
+       background-color: #e25822d2;
+    }
+    50% { 
+        border: 1px solid rgba(9, 139, 194, 0.036);
+        background-color: rgba(9, 176, 194, 0.817);
+    }
+    100% { 
+        border: 1px solid rgba(194, 9, 9, 0.03);
+        background-color: #e25822;
      }
   }
 

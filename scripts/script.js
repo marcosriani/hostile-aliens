@@ -78,7 +78,7 @@ class GameWorld {
         setTimeout(() => {
           allShipsCopy.splice(index, 1);
           this.allShips = allShipsCopy;
-        }, 1000);
+        }, 100);
       }
       this.allShips = allShipsCopy;
     }
@@ -104,7 +104,9 @@ class GameWorld {
     this.allShips.forEach((ship) => {
       let div = document.createElement('div');
       div.id = 'content';
-      div.innerHTML = `<div class="cart "><div class="ship-image"><img class="ship-images shake" src="${
+      div.innerHTML = `<div class="${
+        ship.gotShot ? 'attacked-cart' : 'cart'
+      } "><div class="ship-image"><img class="ship-images shake" src="${
         ship.image
       }"></div><div class="${ship.gotShot ? 'lost-life' : 'life'}">
       ${ship.totalPoints}</div></div>`;

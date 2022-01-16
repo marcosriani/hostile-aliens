@@ -10,7 +10,6 @@ class GameWorld {
     this.allShips.push({
       totalPoints: 100,
       loses: 9,
-      isLive: true,
       isQueen: true,
       isDefence: false,
       isAttack: false,
@@ -25,7 +24,6 @@ class GameWorld {
       this.allShips.push({
         totalPoints: 80,
         loses: 10,
-        isLive: true,
         isQueen: false,
         isDefence: true,
         isAttack: false,
@@ -41,7 +39,6 @@ class GameWorld {
       this.allShips.push({
         totalPoints: 45,
         loses: 12,
-        isLive: true,
         isQueen: false,
         isDefence: false,
         isAttack: true,
@@ -59,15 +56,10 @@ class GameWorld {
   };
 
   attackedShip = () => {
-    const allShipsCopy = [...this.allShips];
-
-    // const index = randomShip.indexOf(
-    //   randomShip[this.getRandomIntInclusive(0, this.allShips.length - 1)]
-    // );
-
-    // if(index > -1 ) {
-    //     randomShip.
-    // }
+    // deep copy of objects inside the array
+    const allShipsCopy = this.allShips.map((obj) => {
+      return { ...obj };
+    });
 
     const randomShip =
       allShipsCopy[this.getRandomIntInclusive(0, allShipsCopy.length - 1)];
@@ -75,11 +67,24 @@ class GameWorld {
     randomShip.totalPoints -= randomShip.loses;
     randomShip.gotShot = true;
 
-    console.log(allShipsCopy);
-    this.allShips = [...allShipsCopy];
+    if (randomShip.totalPoints <= 0) {
+      randomShip.image = '../images/explosion.png';
+      randomShip.totalPoints = '<i class="fas fa-radiation-alt"></i>';
 
-    // console.log(randomShip);
+      const index = allShipsCopy.indexOf(randomShip);
+      if (index > -1) {
+        setTimeout(() => {
+          allShipsCopy.splice(index, 1);
+          this.allShips = allShipsCopy;
+        }, 1000);
+      }
+    }
+
+    this.allShips = allShipsCopy;
+
+    console.log(randomShip);
     // console.log(this.allShips);
+    console.log(allShipsCopy);
   };
 
   // Generate the ships on the sky
@@ -114,3 +119,37 @@ buttonFight.addEventListener('click', () => {
   initiateWorld.attackedShip();
   initiateWorld.gameGenerator();
 });
+
+// attackedShip = () => {
+//     const allShipsCopy = [...this.allShips];
+//     const randomSelectedShip =
+//       allShipsCopy[this.getRandomIntInclusive(0, allShipsCopy.length - 1)];
+//     const updatedShipObj = { ...randomSelectedShip };
+
+//     const indexRandomSelectedShip = allShipsCopy.indexOf(randomSelectedShip);
+
+//     if (indexRandomSelectedShip > -1) {
+//       allShipsCopy.splice(indexRandomSelectedShip, 1);
+//       updatedShipObj.totalPoints -= updatedShipObj.loses;
+//       updatedShipObj.gotShot = true;
+//       //   if (updatedShipObj.totalPoints <= 0) {
+//       //     updatedShipObj.image = '../images/explosion.png';
+//       //     const index2 = allShipsCopy.indexOf(updatedShipObj);
+//       //     if (index2 > -1) {
+//       //       // setTimeout(() => {
+//       //       allShipsCopy.splice(index2, 1);
+//       //       //   this.allShips = allShipsCopy;
+//       //       // }, 1000);
+//       //     }
+//     }
+
+//     //   allShipsCopy.splice(index, 1);
+//     // }
+
+//     console.log(allShipsCopy);
+
+//     // this.allShips = allShipsCopy;
+
+//     // console.log(randomShip);
+//     // console.log(this.allShips);
+//   };

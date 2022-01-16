@@ -16,6 +16,11 @@ body {
   display: inline-block;
 }
 
+.title {
+  text-align: center;
+  margin: 100px 25px;
+}
+
 .ship-sky {
   height: 450px;
 }
@@ -111,8 +116,34 @@ body {
   color: #cd0000;
 }
 
+.game-over-wrapper {
+  display: none;
+}
+
+.game-over {
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+.game-over__paragraph {
+  font-size: 50px;
+  color: #f57402;
+}
+.game-over__continue {
+  color: #e6dfd5;
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: 200;
+  background-color: #22e23f77;
+  border: 1px solid rgba(216, 207, 207, 0.187);
+  width: 25%;
+  height: 50px;
+}
+.game-over__continue:hover {
+  background-color: #22e23fba;
+}
+
 .controller {
-  margin-top: 25vh;
+  margin-top: 10vh;
   text-align: center;
 }
 .controller__button {

@@ -26,16 +26,19 @@ describe('Game tests', () => {
     expect(typeof initiateWorld.attackShips).toBe('function');
   });
 
-  test('motherShip method return an object', () => {
+  test('Type of getRandomIntInclusive method to be an function', () => {
     const initiateWorld = new GameWorld();
-    // const allShips = [];
-
-    // const result = initiateWorld
-    //   .defenseShips(100, 9, true, '../images/attack.png', false)
-    //   .bind(allShips);
-
-    // expect(typeof result).toBe('object');
-
-    expect(typeof initiateWorld).toBe('object');
+    expect(typeof initiateWorld.getRandomIntInclusive).toBe('function');
   });
+
+  // test('motherShip method return an object', () => {
+  //   const initiateWorld = new GameWorld();
+  //   const allShips = [];
+
+  //   const result = initiateWorld
+  //     .defenseShips(100, 9, true, '../images/attack.png', false)
+  //     .bind(allShips);
+
+  //   expect(result).toBe('object');
+  // });
 });

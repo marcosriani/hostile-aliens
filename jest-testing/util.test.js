@@ -31,6 +31,33 @@ describe('Game tests', () => {
     expect(typeof initiateWorld.getRandomIntInclusive).toBe('function');
   });
 
+  test('Function getRandomIntInclusive to return a number', () => {
+    const initiateWorld = new GameWorld();
+    const randomNumberGenerator = initiateWorld.getRandomIntInclusive();
+    expect(typeof randomNumberGenerator).toBe('number');
+  });
+
+  test('Function getRandomIntInclusive to return a number > 0', () => {
+    const initiateWorld = new GameWorld();
+    const randomNumberGenerator = initiateWorld.getRandomIntInclusive(0, 10);
+    expect(randomNumberGenerator).toBeGreaterThanOrEqual(0);
+  });
+
+  test('Type of attackedShip method to be an function', () => {
+    const initiateWorld = new GameWorld();
+    expect(typeof initiateWorld.attackedShip).toBe('function');
+  });
+
+  test('Type of gameGenerator method to be an function', () => {
+    const initiateWorld = new GameWorld();
+    expect(typeof initiateWorld.gameGenerator).toBe('function');
+  });
+
+  test('Type of startAgain method to be an function', () => {
+    const initiateWorld = new GameWorld();
+    expect(typeof initiateWorld.startAgain).toBe('function');
+  });
+
   // test('motherShip method return an object', () => {
   //   const initiateWorld = new GameWorld();
   //   const allShips = [];
